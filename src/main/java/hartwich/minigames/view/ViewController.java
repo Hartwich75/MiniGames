@@ -1,4 +1,4 @@
-package hartwich.minigames;
+package hartwich.minigames.view;
 
 import javafx.scene.Scene;
 import javafx.stage.Stage;

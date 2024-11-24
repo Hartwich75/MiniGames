@@ -1,4 +1,4 @@
-package hartwich.minigames;
+package hartwich.minigames.view;
 
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -15,12 +15,18 @@ import java.util.List;
 public class HomeScreenView {
 
     private static final String title = "MiniGames Application";
+
+    private static final String[] games = {"TicTacToe"};
+
     public static Scene createScene() {
         BorderPane layout = new BorderPane();
         layout.setPadding(new Insets(20));
 
         Pane titlePane = createTitlePane();
         layout.setTop(titlePane);
+
+        Pane gamesPane = createGamesPane();
+        layout.setCenter(gamesPane);
 
         return new Scene(layout);
     }
@@ -34,6 +40,29 @@ public class HomeScreenView {
         titlePane.getChildren().add(titleLabel);
 
         return titlePane;
+    }
+
+    private static Pane createGamesPane() {
+        HBox gamesPane = new HBox();
+        gamesPane.setAlignment(Pos.CENTER);
+
+        for (String game : games) {
+            Button newGameButton = new Button(game);
+            newGameButton.setPrefSize(200, 50);
+            newGameButton.setOnAction(_ -> {
+                switch (game) {
+                    case "TicTacToe":
+                        ViewController.setScene(TicTacToeView.createScene());
+                        break;
+                    // Add more game buttons as needed
+                }
+            });
+
+            gamesPane.getChildren().add(newGameButton);
+        }
+
+
+        return gamesPane;
     }
 
 }
