@@ -16,7 +16,7 @@ public class HomeScreenView {
 
     private static final String title = "MiniGames Application";
 
-    private static final String[] games = {"TicTacToe"};
+    private static final String[] games = {"TicTacToe", "Snake"};
 
     public static Scene createScene() {
         BorderPane layout = new BorderPane();
@@ -54,7 +54,9 @@ public class HomeScreenView {
                     case "TicTacToe":
                         ViewController.setScene(TicTacToeView.createScene());
                         break;
-                    // Add more game buttons as needed
+                    case "Snake":
+                        //TODO: Add functionality
+                        break;
                 }
             });
 
